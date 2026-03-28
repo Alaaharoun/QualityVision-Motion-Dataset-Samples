@@ -21,8 +21,5 @@ venv/
 *.mkv
 *.avi
 
-# Local bulk exports / originals (do not push)
-With Original videos/
-
 # Optional local regeneration
 images/*.png.bak

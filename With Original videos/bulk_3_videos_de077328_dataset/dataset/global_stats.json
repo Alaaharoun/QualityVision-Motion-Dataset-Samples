@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.3.1",
+  "job_id": "bulk_3_videos_de077328",
+  "batch": true,
+  "video_count": 3,
+  "totals": {
+    "exported_frames": 266,
+    "quality_score_mean": 0.4951,
+    "mean_avg_landmark_visibility": 0.76008,
+    "fps_mean": 25.0,
+    "stride": 2,
+    "action_distribution": {
+      "running": 266
+    }
+  },
+  "videos": [
+    {
+      "original_filename": "3191808-uhd_3840_2160_25fps.mp4",
+      "exported_frames": 91,
+      "fps": 25.0,
+      "stride": 2,
+      "quality_score": 0.5234,
+      "estimated_source_duration_sec": 3.64,
+      "avg_sequence_length": 91,
+      "action_label": "running"
+    },
+    {
+      "original_filename": "3191899-uhd_3840_2160_25fps.mp4",
+      "exported_frames": 78,
+      "fps": 25.0,
+      "stride": 2,
+      "quality_score": 0.6223,
+      "estimated_source_duration_sec": 3.12,
+      "avg_sequence_length": 78,
+      "action_label": "running"
+    },
+    {
+      "original_filename": "3209698-uhd_3840_2160_25fps.mp4",
+      "exported_frames": 97,
+      "fps": 25.0,
+      "stride": 2,
+      "quality_score": 0.3664,
+      "estimated_source_duration_sec": 3.88,
+      "avg_sequence_length": 97,
+      "action_label": "running"
+    }
+  ],
+  "artifacts": {
+    "per_frame_records": "dataset/data.jsonl",
+    "sequence_features": "dataset/features.json",
+    "job_manifest": "dataset/manifest.json"
+  },
+  "quality_filter": {
+    "enabled": true,
+    "thresholds": {
+      "min_frame_quality_score": 0.4,
+      "min_avg_landmark_visibility": 0.58,
+      "min_lower_body_visibility": 0.42,
+      "min_motion_local": 0.12
+    },
+    "frames_total": 492,
+    "frames_accepted": 266,
+    "frames_rejected": 226,
+    "accepted_percentage": 54.07,
+    "quality_score_formula": "Per frame: frame_quality_score = 0.5 * avg_landmark_visibility + 0.5 * motion_local. avg_landmark_visibility = mean(visibility) over all keypoints in the frame. motion_local = stability of consecutive hip-center displacements within the same source video (1.0 at clip edges; lower when step-to-step motion is irregular). Sequence-level quality_score in features.json uses the same visibility mean plus motion_consistency from the full hip displacement series (see features_compute).",
+    "mean_metrics_accepted_frames": {
+      "mean_frame_quality_score": 0.6321,
+      "mean_avg_landmark_visibility": 0.7601,
+      "mean_lower_body_visibility": 0.7443,
+      "mean_motion_local": 0.5042
+    },
+    "quality_score_mean_filtered": 0.6321,
+    "mean_avg_landmark_visibility_filtered": 0.7601,
+    "sequence_quality_score_formula": "Sequence quality_score = 0.5 * avg_landmark_visibility + 0.5 * motion_consistency, where motion_consistency derives from hip-center displacement mean vs std across the exported sequence.",
+    "per_frame_quality_formula": "Per frame: frame_quality_score = 0.5 * avg_landmark_visibility + 0.5 * motion_local. avg_landmark_visibility = mean(visibility) over all keypoints in the frame. motion_local = stability of consecutive hip-center displacements within the same source video (1.0 at clip edges; lower when step-to-step motion is irregular). Sequence-level quality_score in features.json uses the same visibility mean plus motion_consistency from the full hip displacement series (see features_compute)."
+  }
+}

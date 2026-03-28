@@ -9,6 +9,7 @@ This repository hosts **small public samples** (typically **50–100 frames**) f
 | Path | Contents |
 |------|-----------|
 | [`walking_sample_v1/`](./walking_sample_v1/) | Example walking clip: `data.jsonl`, `features.json`, `global_stats.json`, `manifest.json`, `export_quality_report.json`. |
+| [`With Original videos/`](./With%20Original%20videos/) | Full bulk export package (larger `data.jsonl` + full `dataset/` tree), kept for transparency / pilot review. |
 | [`images/`](./images/) | Pose preview renders (regenerate with `scripts/render_pose_preview.py`). |
 | [`docs/EULA.md`](./docs/EULA.md) | End-user terms for this sample distribution. |
 

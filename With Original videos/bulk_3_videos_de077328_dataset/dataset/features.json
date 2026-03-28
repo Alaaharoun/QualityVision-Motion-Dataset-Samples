@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.3.1",
+  "job_id": "bulk_3_videos_de077328",
+  "batch": true,
+  "video_count": 3,
+  "videos": [
+    {
+      "original_filename": "3191808-uhd_3840_2160_25fps.mp4",
+      "fps": 25.0,
+      "exported_frames": 91,
+      "sequence": {
+        "frame_count": 91,
+        "action_label": "running",
+        "avg_landmark_visibility": 0.714905,
+        "hip_center_displacement_mean_norm": 0.043485,
+        "hip_center_path_sum_norm": 3.913618,
+        "inter_frame_steps": 90,
+        "velocity_proxy_available": true,
+        "velocity_mean": 0.043485,
+        "velocity_std": 0.029054,
+        "acceleration_mean": 0.026816,
+        "avg_stride_length": 0.118909,
+        "body_height_norm": 0.697328,
+        "arm_swing_amplitude": 0.243035,
+        "step_frequency": 24.725275,
+        "motion_consistency": 0.331847
+      }
+    },
+    {
+      "original_filename": "3191899-uhd_3840_2160_25fps.mp4",
+      "fps": 25.0,
+      "exported_frames": 78,
+      "sequence": {
+        "frame_count": 78,
+        "action_label": "running",
+        "avg_landmark_visibility": 0.846667,
+        "hip_center_displacement_mean_norm": 0.018343,
+        "hip_center_path_sum_norm": 1.412387,
+        "inter_frame_steps": 77,
+        "velocity_proxy_available": true,
+        "velocity_mean": 0.018343,
+        "velocity_std": 0.011044,
+        "acceleration_mean": 0.008817,
+        "avg_stride_length": 0.098317,
+        "body_height_norm": 0.414525,
+        "arm_swing_amplitude": 0.11369,
+        "step_frequency": 24.679487,
+        "motion_consistency": 0.397884
+      }
+    },
+    {
+      "original_filename": "3209698-uhd_3840_2160_25fps.mp4",
+      "fps": 25.0,
+      "exported_frames": 97,
+      "sequence": {
+        "frame_count": 97,
+        "action_label": "running",
+        "avg_landmark_visibility": 0.732835,
+        "hip_center_displacement_mean_norm": 0.042379,
+        "hip_center_path_sum_norm": 4.068405,
+        "inter_frame_steps": 96,
+        "velocity_proxy_available": true,
+        "velocity_mean": 0.042379,
+        "velocity_std": 0.065743,
+        "acceleration_mean": 0.026001,
+        "avg_stride_length": 0.043413,
+        "body_height_norm": 0.577141,
+        "arm_swing_amplitude": 0.330095,
+        "step_frequency": 24.742268,
+        "motion_consistency": 0.0
+      }
+    }
+  ],
+  "aggregate": {
+    "total_frames": 266,
+    "action_label": "running",
+    "stride": 2,
+    "mean_quality_score": 0.4951,
+    "mean_avg_landmark_visibility": 0.76008,
+    "fps_mean": 25.0
+  },
+  "notes": "Batch export: `videos[]` holds one sequence block per source file. Per-video motion metrics are isolated (no cross-video hip chain). data.jsonl concatenates all frames with unique frame_id and source_video_index. Per-frame HQ filter: see export_quality_report.json and global_stats.quality_filter."
+}
