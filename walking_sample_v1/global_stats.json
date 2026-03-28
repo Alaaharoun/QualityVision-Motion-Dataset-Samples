@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.2.1",
+  "job_id": "qv_walking_sample_v1",
+  "video_filename": "walking_uhd_sample.mp4",
+  "fps": 25.0,
+  "stride": 3,
+  "exported_frames": 80,
+  "max_frame_id": 79,
+  "estimated_source_duration_sec": 3.2,
+  "fps_mean": 25.0,
+  "avg_sequence_length": 80,
+  "action_distribution": {
+    "walking": 80
+  },
+  "quality_score": 0.6328,
+  "artifacts": {
+    "per_frame_records": "data.jsonl",
+    "sequence_features": "features.json",
+    "job_manifest": "manifest.json"
+  }
+}

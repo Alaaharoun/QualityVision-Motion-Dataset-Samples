@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.2.1",
+  "job_id": "qv_walking_sample_v1",
+  "sequence": {
+    "frame_count": 80,
+    "action_label": "walking",
+    "avg_landmark_visibility": 0.770697,
+    "hip_center_displacement_mean_norm": 0.014724,
+    "hip_center_path_sum_norm": 1.163219,
+    "inter_frame_steps": 79,
+    "velocity_proxy_available": true,
+    "velocity_mean": 0.014724,
+    "velocity_std": 0.010937,
+    "velocity_cv_raw": 0.742789,
+    "hip_velocity_smooth_window": 3,
+    "velocity_mean_smoothed": 0.014721,
+    "velocity_std_smoothed": 0.008312,
+    "velocity_cv_smoothed": 0.564646,
+    "velocity_cv_mad": 0.394393,
+    "motion_consistency_cv_smoothed": 0.435354,
+    "motion_consistency_mad": 0.605607,
+    "motion_consistency_blend_cv_weight": 0.65,
+    "short_sequence_motion_warning": false,
+    "acceleration_mean": 0.008273,
+    "avg_stride_length": 0.038663,
+    "body_height_norm": 0.351658,
+    "arm_swing_amplitude": 0.086108,
+    "step_frequency": 24.6875,
+    "motion_consistency": 0.494943,
+    "motion_consistency_method": "blend_smoothed_cv_mad_v1"
+  },
+  "notes": "norm = image-normalized coordinates (0–1); x/y clamped at export. Hip displacement is Euclidean distance in normalized space between consecutive exported frames. motion_consistency blends (1) stability of CV on a short moving-average of step lengths (reduces pose jitter) and (2) a robust MAD/median term (less harsh than raw std/mean on periodic gait). Raw velocity_cv can still be high for natural walking; prefer smoothed + MAD components. short_sequence_motion_warning=true when inter_frame_steps is below the configured threshold — sequence-level quality is less reliable for imitation learning. For higher motion_consistency in exports: lower stride, longer clips, walking_focused preset, temporal smoothing on accepted frames. stride_length = mean horizontal ankle separation per frame. body_height_norm = mean |nose.y − mid(ankles).y|. step_frequency ≈ hip displacement steps per second of source timeline."
+}

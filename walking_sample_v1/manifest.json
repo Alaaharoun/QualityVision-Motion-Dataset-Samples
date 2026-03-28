@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "job_id": "qv_walking_sample_v1",
+  "video_filename": "walking_uhd_sample.mp4",
+  "fps": 25.0,
+  "frame_count_exported": 80,
+  "stride": 3,
+  "action_label": "walking",
+  "augmentations_applied": [],
+  "license": "CC-BY-NC-4.0",
+  "consent": true,
+  "notes": "Public pilot sample (80 frames). Produced with the Quality Vision Motion Dataset Engine: HQ frame filter, optional temporal smoothing on accepted frames in the parent export, body-part diagnostics. Filename is illustrative; coordinates are image-normalized. See repository README and docs/EULA.md.",
+  "dataset_format": "pose_estimation_sequence_dataset",
+  "export_manifest_version": "1.1",
+  "bulk_export": false,
+  "source_video_filenames": ["walking_uhd_sample.mp4"],
+  "hq_export": true,
+  "quality_filter": {
+    "enabled": true,
+    "description": "Subset taken from a longer HQ-filtered export; frames renumbered 0–79 for this sample."
+  }
+}

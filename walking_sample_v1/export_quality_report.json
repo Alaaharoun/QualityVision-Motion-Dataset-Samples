@@ -1,0 +1,20 @@
+{
+  "sample_id": "walking_sample_v1",
+  "purpose": "free_public_pilot",
+  "frames_included": 80,
+  "engine": "Quality Vision Motion Dataset Engine",
+  "pipeline_summary": "2D pose (MediaPipe-style landmarks), HQ visibility/motion gate, body-part diagnostics; parent job used optional temporal smoothing on accepted frames.",
+  "sequence_metrics": {
+    "quality_score": 0.6328,
+    "mean_avg_landmark_visibility": 0.770697,
+    "motion_consistency": 0.494943,
+    "motion_consistency_method": "blend_smoothed_cv_mad_v1",
+    "short_sequence_motion_warning": false
+  },
+  "documentation": {
+    "repository": "https://github.com/Alaaharoun/QualityVision-Motion-Dataset-Samples",
+    "per_frame_scores": "See Motion Dataset Engine: weighted visibility + lower-body + motion_local (action-aware nudge).",
+    "sequence_scores": "See features.json sequence block; motion_consistency blends smoothed step-length CV with a MAD/median robust term."
+  },
+  "license": "CC-BY-NC-4.0 for this sample distribution; commercial use requires a separate agreement (see docs/EULA.md)."
+}
