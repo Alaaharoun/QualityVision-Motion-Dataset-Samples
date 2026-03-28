@@ -51,6 +51,19 @@ If you use this sample in research or demos, please cite the repository URL:
 https://github.com/Alaaharoun/QualityVision-Motion-Dataset-Samples
 ```
 
+## Hugging Face Datasets
+
+Public dataset mirror: [Alaaharoun/QualityVision-walking-sample](https://huggingface.co/datasets/Alaaharoun/QualityVision-walking-sample).
+
+To upload / refresh files (requires a [HF access token](https://huggingface.co/settings/tokens)):
+
+```powershell
+hf auth login
+powershell -ExecutionPolicy Bypass -File scripts/upload_to_huggingface.ps1
+```
+
+Or set `HF_TOKEN` and run the same script. The script stages `walking_sample_v1/*` plus `README_HF_DATASET.md` as the Hub `README.md` (dataset card).
+
 ## Publish to GitHub (empty remote)
 
 From this folder:
