@@ -12,6 +12,12 @@ tags:
 pretty_name: QualityVision Walking Sample (compact, 2D pose)
 size_categories:
 - n<1K
+# Hub dataset viewer: only load frame rows from data.jsonl (do not merge with metadata/*.json).
+configs:
+  - config_name: default
+    data_files:
+      - split: train
+        path: "data.jsonl"
 ---
 
 # QualityVision Walking Sample (compact)
@@ -25,10 +31,12 @@ For the **full 24-source bulk export** (~967 HQ frames, ~2901 merged rows, mean 
 | File | Description |
 |------|-------------|
 | `data.jsonl` | One JSON object per line: normalized image-space keypoints, timestamps, optional Layer 1.1 metadata. |
-| `features.json` | Sequence-level aggregates (visibility, hip motion, `motion_consistency`). |
-| `global_stats.json` | Job-level roll-up for this clip. |
-| `manifest.json` | Export metadata (format compatible with the Motion Dataset Engine). |
-| `export_quality_report.json` | Pilot-oriented quality summary. |
+| `metadata/features.json` | Sequence-level aggregates (visibility, hip motion, `motion_consistency`). |
+| `metadata/global_stats.json` | Job-level roll-up for this clip. |
+| `metadata/manifest.json` | Export metadata (format compatible with the Motion Dataset Engine). |
+| `metadata/export_quality_report.json` | Pilot-oriented quality summary. |
+
+Auxiliary JSON files live under `metadata/` so the Hub **dataset viewer** only builds previews from `data.jsonl` (avoids schema clashes with report objects).
 
 ## Usage
 

@@ -21,7 +21,16 @@ if (-not (Test-Path $SampleDir)) {
 
 New-Item -ItemType Directory -Path $Staging -Force | Out-Null
 Copy-Item -Path (Join-Path $RepoRoot "README_HF_DATASET.md") -Destination (Join-Path $Staging "README.md") -Force
-Copy-Item -Path "$SampleDir\*" -Destination $Staging -Recurse -Force
+# Frame rows at repo root; other JSON reports under metadata/ so HF viewer does not merge schemas.
+Copy-Item -Path (Join-Path $SampleDir "data.jsonl") -Destination (Join-Path $Staging "data.jsonl") -Force
+$meta = Join-Path $Staging "metadata"
+New-Item -ItemType Directory -Path $meta -Force | Out-Null
+foreach ($name in @("features.json", "global_stats.json", "manifest.json", "export_quality_report.json", "README_sample.md")) {
+    $src = Join-Path $SampleDir $name
+    if (Test-Path $src) {
+        Copy-Item -Path $src -Destination (Join-Path $meta $name) -Force
+    }
+}
 
 Write-Host "Staging: $Staging"
 Write-Host "Uploading to $RepoId ..."
@@ -31,7 +40,7 @@ Write-Host "Or set: `$env:HF_TOKEN = 'hf_...' (from https://huggingface.co/setti
 $args = @(
     "upload", $RepoId, $Staging, ".",
     "--repo-type=dataset",
-    "--commit-message=Add walking sample (JSONL + features + manifest + quality report)"
+    "--commit-message=Walking sample: data.jsonl at root; metadata/*.json for viewer-safe layout + README configs"
 )
 if ($env:HF_TOKEN) {
     $args += "--token", $env:HF_TOKEN
