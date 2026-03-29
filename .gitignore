@@ -21,5 +21,9 @@ venv/
 *.mkv
 *.avi
 
+# Optional local copies of source videos next to a bulk_* export folder
+bulk_*/Videos/
+**/sources/*.mp4
+
 # Optional local regeneration
 images/*.png.bak

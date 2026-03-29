@@ -1,0 +1,37 @@
+{
+  "job_id": "bulk_24_videos_6a173caf",
+  "hq_export": true,
+  "config_warnings": [],
+  "thresholds": {
+    "min_frame_quality_score": 0.38,
+    "min_avg_landmark_visibility": 0.55,
+    "min_lower_body_visibility": 0.4,
+    "min_motion_local": null
+  },
+  "filter_report": {
+    "enabled": true,
+    "thresholds": {
+      "min_frame_quality_score": 0.38,
+      "min_avg_landmark_visibility": 0.55,
+      "min_lower_body_visibility": 0.4,
+      "min_motion_local": null
+    },
+    "frames_total": 3250,
+    "frames_accepted": 2901,
+    "frames_rejected": 2283,
+    "accepted_percentage": 89.26,
+    "quality_score_formula": "Per frame: frame_quality_score = 0.5 * avg_landmark_visibility + 0.0 * lower_body_visibility + 0.5 * motion_local.",
+    "mean_metrics_accepted_frames": {
+      "mean_frame_quality_score": 0.8216,
+      "mean_avg_landmark_visibility": 0.7463,
+      "mean_lower_body_visibility": 0.7336,
+      "mean_motion_local": 0.897
+    },
+    "quality_score_mean_filtered": 0.8216,
+    "mean_avg_landmark_visibility_filtered": 0.7463
+  },
+  "documentation": {
+    "sequence_quality_score": "Sequence quality_score uses motion_consistency from hip displacement series.",
+    "per_frame_scores": "Per frame: frame_quality_score = 0.5 * avg_landmark_visibility + 0.0 * lower_body_visibility + 0.5 * motion_local."
+  }
+}

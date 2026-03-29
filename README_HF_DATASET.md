@@ -9,14 +9,16 @@ tags:
 - mediapipe
 - motion-dataset
 - quality-vision
-pretty_name: QualityVision Walking Sample (2D pose)
+pretty_name: QualityVision Walking Sample (compact, 2D pose)
 size_categories:
 - n<1K
 ---
 
-# QualityVision Walking Sample
+# QualityVision Walking Sample (compact)
 
-**High-quality 2D pose estimation** sample for **walking**, exported from the [Quality Vision Motion Dataset Engine](https://github.com/Alaaharoun/QualityVision-Motion-Dataset-Samples) pipeline: **HQ frame filtering**, optional **temporal smoothing** on accepted frames, and **sequence diagnostics** in `features.json`.
+**Small** **high-quality 2D pose** clip for **walking**, exported from the [Quality Vision Motion Dataset Engine](https://github.com/Alaaharoun/QualityVision-Motion-Dataset-Samples) pipeline: **HQ frame filtering**, optional **temporal smoothing** on accepted frames, and **sequence diagnostics** in `features.json`.
+
+For the **full 24-source bulk export** (~967 HQ frames, ~2901 merged rows, mean quality ~0.82), clone the GitHub repo and use `bulk_24_videos_6a173caf_dataset/`, or mirror [`README_HF_BULK.md`](https://github.com/Alaaharoun/QualityVision-Motion-Dataset-Samples/blob/main/README_HF_BULK.md) to a separate Hugging Face dataset via `scripts/upload_bulk_to_huggingface.ps1`.
 
 ## Files
 
