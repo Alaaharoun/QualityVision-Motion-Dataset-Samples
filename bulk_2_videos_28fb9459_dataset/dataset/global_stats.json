@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.3.1",
+  "job_id": "bulk_2_videos_28fb9459",
+  "batch": true,
+  "high_density_mode": false,
+  "video_count": 2,
+  "totals": {
+    "exported_frames": 348,
+    "quality_score_mean": 0.8424,
+    "mean_avg_landmark_visibility": 0.8038,
+    "fps_mean": 24.0,
+    "stride": 6,
+    "action_distribution": {
+      "running": 348
+    }
+  },
+  "videos": [
+    {
+      "original_filename": "running_pexels_5677449.mp4",
+      "exported_frames": 192,
+      "fps": 24.0,
+      "stride": 6,
+      "quality_score": 0.82,
+      "estimated_source_duration_sec": 35.29,
+      "avg_sequence_length": 192,
+      "action_label": "running"
+    },
+    {
+      "original_filename": "running_pexels_5677457.mp4",
+      "exported_frames": 156,
+      "fps": 24.0,
+      "stride": 6,
+      "quality_score": 0.87,
+      "estimated_source_duration_sec": 15.42,
+      "avg_sequence_length": 156,
+      "action_label": "running"
+    }
+  ],
+  "artifacts": {
+    "per_frame_records": "dataset/data.jsonl",
+    "per_video_frames_glob": "dataset/per_video/video_*.jsonl",
+    "per_video_rejected_glob": "dataset/per_video/rejected_*.jsonl",
+    "combined_layout": "dataset/bulk_combined_manifest.json",
+    "sequence_features": "dataset/features.json",
+    "job_manifest": "dataset/manifest.json",
+    "run_diagnostics": "dataset/run_diagnostics.json",
+    "runtime_config": "dataset/runtime_config.json"
+  },
+  "quality_filter": {
+    "enabled": true,
+    "thresholds": {
+      "min_frame_quality_score": 0.38,
+      "min_avg_landmark_visibility": 0.55,
+      "min_lower_body_visibility": 0.4,
+      "min_motion_local": null
+    },
+    "frames_total": 204,
+    "frames_accepted_pre_augmentation": 116,
+    "frames_exported_including_augmentations": 348,
+    "frames_rejected": 88,
+    "accepted_percentage": 56.86,
+    "acceptance_rate_note": "accepted_percentage = frames_accepted_pre_augmentation / frames_total (sampled). frames_exported_including_augmentations includes augmentation duplicates.",
+    "quality_score_formula": "Per frame: frame_quality_score = 0.5 * avg_landmark_visibility + 0.0 * lower_body_visibility + 0.5 * motion_local.",
+    "mean_metrics_accepted_frames": {
+      "mean_frame_quality_score": 0.8424,
+      "mean_avg_landmark_visibility": 0.8038,
+      "mean_lower_body_visibility": 0.8119,
+      "mean_motion_local": 0.8811
+    },
+    "quality_score_mean_filtered": 0.8424,
+    "mean_avg_landmark_visibility_filtered": 0.8038,
+    "sequence_quality_score_formula": "Sequence quality_score uses motion_consistency from hip displacement series.",
+    "per_frame_quality_formula": "Per frame: frame_quality_score = 0.5 * avg_landmark_visibility + 0.0 * lower_body_visibility + 0.5 * motion_local."
+  },
+  "keypoint_post_processing": {
+    "gaussian_smoothing": {
+      "enabled": true,
+      "window": 5,
+      "axes": [
+        "x",
+        "y",
+        "z"
+      ],
+      "visibility_smoothed": false,
+      "config": "hq.gaussian_smooth / hq.temporal_smoothing, gaussian_window, or MDE_GAUSSIAN_SMOOTH"
+    },
+    "body_normalization": {
+      "method": "hip_center_torso_scale"
+    }
+  },
+  "runtime_config": "dataset/runtime_config.json"
+}

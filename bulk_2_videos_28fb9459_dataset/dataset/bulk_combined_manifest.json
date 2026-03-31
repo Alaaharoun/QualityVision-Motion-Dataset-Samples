@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0.0",
+  "job_id": "bulk_2_videos_28fb9459",
+  "stride_requested": 6,
+  "fps_cap": 25.0,
+  "keypoint_post_processing": {
+    "body_normalization": {
+      "fields": [
+        "keypoints_body_normalized",
+        "body_normalization"
+      ],
+      "method": "hip_center_torso_scale",
+      "notes": "Omitted when hips/shoulders degenerate (scale below epsilon). Computed from final keypoints after optional Gaussian smoothing."
+    },
+    "gaussian_smoothing": {
+      "enabled": true,
+      "window": 5,
+      "axes": [
+        "x",
+        "y",
+        "z"
+      ],
+      "visibility_smoothed": false,
+      "config": "hq.gaussian_smooth / hq.temporal_smoothing, gaussian_window, or MDE_GAUSSIAN_SMOOTH"
+    }
+  },
+  "runtime_config": "runtime_config.json",
+  "description": "After each video is processed, frames are merged into dataset-wide files and duplicated per source under per_video/. effective stride per file may exceed stride_requested when video fps > fps_cap.",
+  "combined_outputs": {
+    "all_frames_hq": "data.jsonl",
+    "all_rejected_or_low_quality": "low_quality_frames.jsonl",
+    "sequence_features": "features.json",
+    "global_aggregates": "global_stats.json",
+    "export_report": "export_quality_report.json",
+    "job_manifest": "manifest.json",
+    "run_diagnostics": "run_diagnostics.json",
+    "runtime_config": "runtime_config.json"
+  },
+  "high_density_mode": false,
+  "per_video": [
+    {
+      "source_video_index": 0,
+      "original_filename": "running_pexels_5677449.mp4",
+      "frames_jsonl": "per_video/video_000.jsonl",
+      "rejected_jsonl": "per_video/rejected_000.jsonl",
+      "exported_frames": 192,
+      "rejected_frames": 78
+    },
+    {
+      "source_video_index": 1,
+      "original_filename": "running_pexels_5677457.mp4",
+      "frames_jsonl": "per_video/video_001.jsonl",
+      "rejected_jsonl": "per_video/rejected_001.jsonl",
+      "exported_frames": 156,
+      "rejected_frames": 10
+    }
+  ]
+}

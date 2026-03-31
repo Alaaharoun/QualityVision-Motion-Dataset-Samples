@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0.0",
+  "job_id": "bulk_2_videos_28fb9459",
+  "high_density_mode": false,
+  "stride_requested": 6,
+  "fps_cap_effective": 25.0,
+  "max_per_video_env": 0,
+  "max_per_video_payload": 0,
+  "max_per_video_effective": 0,
+  "per_video": [
+    {
+      "source_video_index": 0,
+      "original_filename": "running_pexels_5677449.mp4",
+      "frames_read": 847,
+      "frames_sampled": 142,
+      "frames_accepted": 64,
+      "frames_accepted_total_after_augmentations": 192,
+      "frames_rejected": 78,
+      "effective_stride": 6,
+      "stride_requested": 6,
+      "fps": 24.0,
+      "fps_cap": 25.0,
+      "dynamic_stride_applied": false,
+      "high_density_mode": false,
+      "max_per_video_cap_effective": 0,
+      "max_per_video_env": 0
+    },
+    {
+      "source_video_index": 1,
+      "original_filename": "running_pexels_5677457.mp4",
+      "frames_read": 370,
+      "frames_sampled": 62,
+      "frames_accepted": 52,
+      "frames_accepted_total_after_augmentations": 156,
+      "frames_rejected": 10,
+      "effective_stride": 6,
+      "stride_requested": 6,
+      "fps": 24.0,
+      "fps_cap": 25.0,
+      "dynamic_stride_applied": false,
+      "high_density_mode": false,
+      "max_per_video_cap_effective": 0,
+      "max_per_video_env": 0
+    }
+  ],
+  "batch_comparison": {
+    "video_count": 2,
+    "rows_ok": 2,
+    "unique_effective_strides": [
+      6
+    ],
+    "any_dynamic_stride": false,
+    "total_frames_read": 1217,
+    "total_frames_sampled": 204,
+    "total_frames_accepted_pre_augmentation": 116,
+    "total_frames_rejected": 88,
+    "notes": "Per-video density is driven by: (1) effective_stride × fps vs duration, (2) quality rejects, (3) max_per_video cap, (4) augmentation duplicates (not in frames_accepted). high_density_mode disables fps_cap stride widening and ignores MDE_MAX_FRAMES_PER_VIDEO. When payload.max_frames_per_video is set, it overrides MDE_MAX_FRAMES_PER_VIDEO (0 = no cap)."
+  }
+}

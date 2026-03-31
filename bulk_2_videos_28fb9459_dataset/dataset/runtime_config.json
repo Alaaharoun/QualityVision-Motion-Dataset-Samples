@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0.0",
+  "bulk_pipeline_version": "2",
+  "job_id": "bulk_2_videos_28fb9459",
+  "gaussian_smoothing": {
+    "enabled": true,
+    "gaussian_window": 5,
+    "axes_applied": [
+      "x",
+      "y",
+      "z"
+    ],
+    "visibility_smoothed": false,
+    "raw_hq_gaussian_smooth": true,
+    "raw_hq_temporal_smoothing": true,
+    "raw_payload_gaussian_smooth": null
+  },
+  "augmentations": {
+    "horizontal_flip": true,
+    "keypoint_noise_std": 0.015,
+    "raw_payload_mirror_augment": true,
+    "raw_payload_keypoint_noise_augment": true
+  },
+  "stride_requested": 6,
+  "fps_cap": 25.0,
+  "quality_thresholds": {
+    "min_frame_quality_score": 0.38,
+    "min_avg_landmark_visibility": 0.55,
+    "min_lower_body_visibility": 0.4,
+    "min_motion_local": null
+  },
+  "high_density_mode": false,
+  "max_per_video_effective": 0,
+  "max_per_video_env": 0,
+  "max_per_video_payload": 0,
+  "frame_features_enabled": true,
+  "payload_top_level_keys": [
+    "action_label",
+    "dataset_license",
+    "frame_stride",
+    "hq",
+    "keypoint_noise_augment",
+    "keypoint_noise_std",
+    "max_frames_per_video",
+    "mirror_augment",
+    "openrouter_model",
+    "pipeline_mode",
+    "rights_confirmed"
+  ],
+  "hq_keys": [
+    "augmentations",
+    "export_hq_only",
+    "gaussian_smooth",
+    "gaussian_window",
+    "min_avg_landmark_visibility",
+    "min_frame_quality",
+    "min_lower_body_visibility",
+    "min_motion_local",
+    "preset",
+    "temporal_smoothing",
+    "weight_avg_visibility",
+    "weight_lower_body",
+    "weight_motion_local"
+  ],
+  "config_warnings": []
+}
