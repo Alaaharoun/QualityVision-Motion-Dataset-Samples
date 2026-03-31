@@ -23,6 +23,7 @@ Start from [`bulk_24_videos_6a173caf_dataset/dataset/data.jsonl`](./bulk_24_vide
 |------|-----------|
 | [`bulk_24_videos_6a173caf_dataset/`](./bulk_24_videos_6a173caf_dataset/) | **Primary sample:** full `dataset/` tree (JSONL, manifests, stats, per-video splits). |
 | [`walking_sample_v1/`](./walking_sample_v1/) | **Compact legacy clip** (~80 frames) for quick parsing tests; older quality headline (~0.63 sequence score). |
+| [`bulk_2_videos_28fb9459_dataset/`](./bulk_2_videos_28fb9459_dataset/) | **Compact running bulk export:** full `dataset/` tree for 2 running clips (includes per-video splits + rejected frames). |
 | [`With Original videos/`](./With%20Original%20videos/) | Older pilot bulk folder (smaller export); kept for history. Prefer the **bulk_24** tree above for current numbers. |
 | [`images/`](./images/) | Pose preview renders (regenerate with `scripts/render_pose_preview.py`). |
 | [`docs/EULA.md`](./docs/EULA.md) | End-user terms for this sample distribution. |
@@ -31,7 +32,26 @@ Start from [`bulk_24_videos_6a173caf_dataset/dataset/data.jsonl`](./bulk_24_vide
 
 - **80 frames** of **walking**, image-normalized 2D landmarks (+ optional Layer 1.1 metadata where present).
 - Derived from a **longer HQ-filtered export**; frames were **renumbered** for a compact GitHub-friendly subset.
-- **Sequence quality score** ≈ **0.63** (see `global_stats.json` / `features.json`); **`motion_consistency`** uses engine method `blend_smoothed_cv_mad_v1` (see `features.json` → `sequence`).
+- **Sequence quality score**: **0.6328** (see `global_stats.json` / `features.json`)
+  - Mean landmark visibility: **0.7707**
+  - Motion consistency: **0.4949** (method: `blend_smoothed_cv_mad_v1`)
+
+### `bulk_2_videos_28fb9459_dataset` at a glance (compact running bulk)
+
+[`bulk_2_videos_28fb9459_dataset/`](./bulk_2_videos_28fb9459_dataset/) is a small but **production-layout** bulk export for **running**.
+
+| Metric | Value |
+|--------|--------|
+| Videos processed | **2** running clips |
+| HQ-accepted frames (pre-augmentation) | **116** |
+| Rows in merged `data.jsonl` | **348** (includes augmentations: horizontal flip + keypoint noise) |
+| Accepted percentage | **56.86%** (pre-augmentation acceptance rate over sampled frames) |
+| Mean quality score (accepted frames) | **0.8424** |
+| Mean landmark visibility (accepted frames) | **0.8038** |
+| Post-processing | Gaussian smoothing (**window=5**) + body normalization (`hip_center_torso_scale`) |
+| Default stride | **6** |
+
+It includes a full `dataset/` tree: merged `data.jsonl`, `low_quality_frames.jsonl`, per-video splits under `dataset/per_video/`, plus `manifest.json`, `runtime_config.json`, `global_stats.json`, and `export_quality_report.json`.
 
 ## Quick start
 
