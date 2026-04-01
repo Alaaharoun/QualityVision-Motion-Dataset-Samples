@@ -4,6 +4,15 @@
 
 This repository hosts **public pose-export samples** for **evaluation, demos, and pilot integrations**. It is **not** a full commercial release; larger batches and redistribution terms are negotiated separately.
 
+## Ready-made datasets (commercial)
+
+Quality Vision runs a **public storefront** for **ready-made pose / motion dataset bundles** (JSONL exports + metadata, same engine layout as these samples). That is separate from the **free** samples in this repo:
+
+- **Pricing & curated bundles:** [qvision.space/dataset-pricing](https://qvision.space/dataset-pricing)
+- **Product site:** [qvision.space](https://qvision.space)
+
+For licensing or custom scope, use the contact options on the site (e.g. **info@qvision.space**).
+
 ## Flagship: 24-video walking export (2026)
 
 [`bulk_24_videos_6a173caf_dataset/`](./bulk_24_videos_6a173caf_dataset/) — full **Quality Vision Motion Dataset Engine** bulk package (same layout as production exports):
@@ -122,8 +131,8 @@ git push -u origin main
 
 - **Description:** `High-quality 2D pose estimation dataset for walking (HQ filtered + temporal smoothing). Free pilot samples.`
 - **Topics:** `pose-estimation`, `dataset`, `walking`, `motion-capture`, `mediapipe`, `machine-learning`, `robotics`
-- **Website:** your product or docs URL (optional)
+- **Website:** [https://qvision.space](https://qvision.space) (ready-made datasets: [dataset-pricing](https://qvision.space/dataset-pricing))
 
 ## Contact
 
-Open an issue for pilot feedback, integration questions, or licensing for full datasets.
+Open an issue for pilot feedback, integration questions, or licensing for full datasets. For **purchasing ready-made exports**, see [Dataset pricing](https://qvision.space/dataset-pricing) on the Quality Vision site.
