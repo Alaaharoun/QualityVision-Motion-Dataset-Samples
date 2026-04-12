@@ -1,0 +1,27 @@
+Quality Vision — Dataset export license notice
+===============================================
+Version: 1.0 (plain text for ZIP bundles produced by Dataset Lab / engine)
+
+This file accompanies automated exports (e.g. JSONL, manifests, stats, QA reports).
+It is a short notice; the full terms on the website may add detail.
+
+1. Grant
+   Upon valid payment or quota use as described on https://qvision.space/dataset-pricing ,
+   you receive a non-exclusive license to use these files for your internal development
+   and product work, including training and evaluating models.
+
+2. No public re-hosting
+   Do not republish the full purchased export for free public download unless Quality Vision
+   has agreed in writing.
+
+3. Samples vs commercial
+   Public GitHub / Hugging Face samples may follow separate non-commercial terms unless you
+   buy a commercial license. See: https://qvision.space/legal/dataset-licensing
+
+4. As-is
+   Exports are provided as-is without warranty of fitness for regulated uses unless contracted.
+
+5. Contact
+   info@qvision.space — https://qvision.space/
+
+© Quality Bijoux / Quality Vision. All rights reserved.

@@ -1,0 +1,126 @@
+{
+  "schema_version": "1.0.0",
+  "job_id": "bulk_9_videos_933d5ad5",
+  "stride_requested": 1,
+  "fps_cap": 25.0,
+  "keypoint_post_processing": {
+    "body_normalization": {
+      "fields": [
+        "keypoints_body_normalized",
+        "body_normalization"
+      ],
+      "method": "hip_center_torso_scale",
+      "notes": "Omitted when hips/shoulders degenerate (scale below epsilon). Computed from final keypoints after optional Gaussian smoothing. For MediaPipe Hands exports, hips/shoulders are absent — `keypoints_body_normalized` is omitted. Use `wrist_position` and `wrist_relative_keypoints` for manipulation-centric coordinates."
+    },
+    "gaussian_smoothing": {
+      "enabled": true,
+      "window": 5,
+      "axes": [
+        "x",
+        "y",
+        "z"
+      ],
+      "visibility_smoothed": false,
+      "config": "hq.gaussian_smooth / hq.temporal_smoothing, gaussian_window, or MDE_GAUSSIAN_SMOOTH"
+    },
+    "wrist_relative_hand": {
+      "fields": [
+        "wrist_position",
+        "wrist_relative_keypoints"
+      ],
+      "method": "subtract_wrist_xyz",
+      "notes": "Each landmark in wrist_relative_keypoints is relative to the wrist landmark (image-normalized space). wrist_position duplicates wrist x,y,z for convenience."
+    }
+  },
+  "runtime_config": "runtime_config.json",
+  "description": "After each video is processed, frames are merged into dataset-wide files and duplicated per source under per_video/. effective stride per file may exceed stride_requested when video fps > fps_cap.",
+  "combined_outputs": {
+    "all_frames_hq": "data.jsonl",
+    "all_rejected_or_low_quality": "low_quality_frames.jsonl",
+    "sequence_features": "features.json",
+    "global_aggregates": "global_stats.json",
+    "export_report": "export_quality_report.json",
+    "job_manifest": "manifest.json",
+    "run_diagnostics": "run_diagnostics.json",
+    "runtime_config": "runtime_config.json"
+  },
+  "high_density_mode": false,
+  "per_video": [
+    {
+      "source_video_index": 0,
+      "original_filename": "hand_movement_pexels_856437.mp4",
+      "frames_jsonl": "per_video/video_000.jsonl",
+      "rejected_jsonl": "per_video/rejected_000.jsonl",
+      "exported_frames": 1472,
+      "rejected_frames": 34
+    },
+    {
+      "source_video_index": 1,
+      "original_filename": "hand_movement_pexels_4968942.mp4",
+      "frames_jsonl": "per_video/video_001.jsonl",
+      "rejected_jsonl": "per_video/rejected_001.jsonl",
+      "exported_frames": 240,
+      "rejected_frames": 173
+    },
+    {
+      "source_video_index": 2,
+      "original_filename": "hand_movement_pexels_5020484.mp4",
+      "frames_jsonl": "per_video/video_002.jsonl",
+      "rejected_jsonl": "per_video/rejected_002.jsonl",
+      "exported_frames": 2312,
+      "rejected_frames": 160
+    },
+    {
+      "source_video_index": 3,
+      "original_filename": "hand_movement_pexels_5095288.mp4",
+      "frames_jsonl": "per_video/video_003.jsonl",
+      "rejected_jsonl": "per_video/rejected_003.jsonl",
+      "exported_frames": 0,
+      "rejected_frames": 152
+    },
+    {
+      "source_video_index": 4,
+      "original_filename": "hand_movement_pexels_5738573.mp4",
+      "frames_jsonl": "per_video/video_004.jsonl",
+      "rejected_jsonl": "per_video/rejected_004.jsonl",
+      "exported_frames": 736,
+      "rejected_frames": 25
+    },
+    {
+      "source_video_index": 5,
+      "original_filename": "hand_movement_pexels_5902548.mp4",
+      "frames_jsonl": "per_video/video_005.jsonl",
+      "rejected_jsonl": "per_video/rejected_005.jsonl",
+      "exported_frames": 848,
+      "rejected_frames": 523
+    },
+    {
+      "source_video_index": 6,
+      "original_filename": "hand_movement_pexels_6268981.mp4",
+      "frames_jsonl": "per_video/video_006.jsonl",
+      "rejected_jsonl": "per_video/rejected_006.jsonl",
+      "exported_frames": 1952,
+      "rejected_frames": 521
+    },
+    {
+      "source_video_index": 7,
+      "original_filename": "hand_movement_pexels_28525079.mp4",
+      "frames_jsonl": "per_video/video_007.jsonl",
+      "rejected_jsonl": "per_video/rejected_007.jsonl",
+      "exported_frames": 604,
+      "rejected_frames": 6
+    },
+    {
+      "source_video_index": 8,
+      "original_filename": "hand_movement_pexels_30614796.mp4",
+      "frames_jsonl": "per_video/video_008.jsonl",
+      "rejected_jsonl": "per_video/rejected_008.jsonl",
+      "exported_frames": 948,
+      "rejected_frames": 90
+    }
+  ],
+  "metadata_exports": {
+    "actions_csv": "metadata/actions.csv",
+    "dataset_meta": "metadata/dataset_meta.json"
+  }
+}

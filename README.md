@@ -4,22 +4,31 @@
 
 This repository hosts **public pose-export samples** for **evaluation, demos, and pilot integrations**. It is **not** a full commercial release; larger batches and redistribution terms are negotiated separately.
 
-## Dexterous Hand movements — 10-video public sample (2026)
+## Dexterous Hand movements — recommended free sample (2026, `bulk_9`)
 
-**Title:** **Dexterous Hand movements** (hand-centric bulk export, production-style `dataset/` tree).
+**Best current public hand sample for robotics / manipulation pilots** (e.g. AgiBot, Unitree, UBTECH): **9** source clips, **wrist-relative** post-processing (`wrist_position`, `wrist_relative_keypoints`), dexterous **motion_intelligence** + grip / activity histograms, and **use_cases.md** scoped to dexterous work (not walking).
 
-[`bulk_10_videos_69f3288a_dexterous_hand_dataset/`](./bulk_10_videos_69f3288a_dexterous_hand_dataset/) — preview of what a **commercial hand bundle** looks like: **10** source clips, **thousands** of HQ rows in `data.jsonl` (with augmentations per job settings), plus `metadata/`, `global_stats.json`, `features.json`, dexterous histograms, and a full **ONEPAGER** spec sheet.
+[`bulk_9_videos_933d5ad5_dataset/`](./bulk_9_videos_933d5ad5_dataset/) — production-style `dataset/` tree: merged `data.jsonl`, `per_video/`, `metadata/`, `global_stats.json`, `features.json`, `SCHEMA.md`, `ONEPAGER.md`.
 
-| Metric | Value (see [`dataset/ONEPAGER.md`](./bulk_10_videos_69f3288a_dexterous_hand_dataset/dataset/ONEPAGER.md)) |
+| Metric | Value (see [`dataset/ONEPAGER.md`](./bulk_9_videos_933d5ad5_dataset/dataset/ONEPAGER.md)) |
 |--------|----------------------------------------------------------------------------------------------------------------------------------|
-| Job ID | `bulk_10_videos_69f3288a` |
+| Job ID | `bulk_9_videos_933d5ad5` |
 | Action label | **Dexterous Hand movements** |
-| Videos processed | **10** |
-| Exported rows in merged `data.jsonl` (HQ, incl. augmentations) | **9228** |
-| Accepted frames (pre-augmentation) | **2307** |
-| Mean quality score (accepted) | **~0.9645** |
+| Videos processed | **9** |
+| Exported rows in merged `data.jsonl` (HQ, incl. augmentations) | **9112** |
+| Accepted frames (pre-augmentation) | **2278** |
+| Acceptance rate (pre-aug / sampled) | **57.5%** |
+| Mean quality score (accepted) | **~0.9715** |
+| Mean landmark visibility (accepted) | **~0.943** |
 | Keypoints | **MediaPipe Hands** (21 landmarks) |
+| Post-processing | Gaussian smoothing + **wrist-relative** fields; hip-based body normalization is **not applied** to hand-only rows (see manifest notes) |
 | Dexterous extras | Finger angles, grip heuristics, hand `motion_intelligence` (v3), activity / grip histograms |
+
+**Full commercial / enterprise packs:** For **larger batches**, **custom scope**, or **licensing**, contact **info@qvision.space** and see [Dataset pricing](https://qvision.space/dataset-pricing). This repo stays a **free evaluation sample** only.
+
+## Dexterous Hand movements — additional 10-video public sample (2026)
+
+[`bulk_10_videos_69f3288a_dexterous_hand_dataset/`](./bulk_10_videos_69f3288a_dexterous_hand_dataset/) — alternate **10**-clip hand bulk export (see [`dataset/ONEPAGER.md`](./bulk_10_videos_69f3288a_dexterous_hand_dataset/dataset/ONEPAGER.md)): **9228** merged HQ rows (incl. augmentations), **2307** accepted pre-aug, mean quality **~0.9645**.
 
 **Larger commercial offering (not in this repo):** Quality Vision can deliver **~140,000+ HQ frames** and **multi-clip** packages segmented for **specific, precise dexterous motions** — negotiated scope, licensing, and delivery format. See **Ready-made datasets** below and [`dataset-pricing`](https://qvision.space/dataset-pricing).
 
@@ -49,7 +58,8 @@ Start from [`bulk_24_videos_6a173caf_dataset/dataset/data.jsonl`](./bulk_24_vide
 
 | Path | Contents |
 |------|-----------|
-| [`bulk_10_videos_69f3288a_dexterous_hand_dataset/`](./bulk_10_videos_69f3288a_dexterous_hand_dataset/) | **Dexterous Hand movements:** 10-video hand bulk export (JSONL + `metadata/` + ONEPAGER). |
+| [`bulk_9_videos_933d5ad5_dataset/`](./bulk_9_videos_933d5ad5_dataset/) | **Dexterous Hand movements (recommended free sample):** 9-video hand bulk export with wrist-relative fields + ONEPAGER. |
+| [`bulk_10_videos_69f3288a_dexterous_hand_dataset/`](./bulk_10_videos_69f3288a_dexterous_hand_dataset/) | **Dexterous Hand movements:** additional 10-video hand bulk export (JSONL + `metadata/` + ONEPAGER). |
 | [`bulk_24_videos_6a173caf_dataset/`](./bulk_24_videos_6a173caf_dataset/) | **Primary walking sample:** full `dataset/` tree (JSONL, manifests, stats, per-video splits). |
 | [`walking_sample_v1/`](./walking_sample_v1/) | **Compact legacy clip** (~80 frames) for quick parsing tests; older quality headline (~0.63 sequence score). |
 | [`bulk_2_videos_28fb9459_dataset/`](./bulk_2_videos_28fb9459_dataset/) | **Compact running bulk export:** full `dataset/` tree for 2 running clips (includes per-video splits + rejected frames). |
@@ -85,7 +95,7 @@ It includes a full `dataset/` tree: merged `data.jsonl`, `low_quality_frames.jso
 ## Quick start
 
 1. Clone the repository.
-2. **Dexterous Hand movements:** read [`bulk_10_videos_69f3288a_dexterous_hand_dataset/dataset/ONEPAGER.md`](./bulk_10_videos_69f3288a_dexterous_hand_dataset/dataset/ONEPAGER.md), then parse [`bulk_10_videos_69f3288a_dexterous_hand_dataset/dataset/data.jsonl`](./bulk_10_videos_69f3288a_dexterous_hand_dataset/dataset/data.jsonl) (one JSON object per line).
+2. **Dexterous Hand movements (recommended):** read [`bulk_9_videos_933d5ad5_dataset/dataset/ONEPAGER.md`](./bulk_9_videos_933d5ad5_dataset/dataset/ONEPAGER.md), then parse [`bulk_9_videos_933d5ad5_dataset/dataset/data.jsonl`](./bulk_9_videos_933d5ad5_dataset/dataset/data.jsonl) (one JSON object per line). Alternate: [`bulk_10_videos_69f3288a_dexterous_hand_dataset/dataset/`](./bulk_10_videos_69f3288a_dexterous_hand_dataset/dataset/).
 3. **Walking (flagship):** parse `bulk_24_videos_6a173caf_dataset/dataset/data.jsonl` — one JSON object per line (see [`bulk_24_videos_6a173caf_dataset/README.md`](./bulk_24_videos_6a173caf_dataset/README.md) for authentic vs augmented counts).
 4. **Quick test:** parse `walking_sample_v1/data.jsonl` (small file).
 5. Read `features.json` / `global_stats.json` under the folder you chose for aggregates.

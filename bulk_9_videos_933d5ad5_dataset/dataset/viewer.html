@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pose Viewer (local)</title>
+  <style>
+    :root { --bg:#000; --fg:#fff; --muted:#a3a3a3; --gold:#D4AF37; --card: rgba(255,255,255,.05); --border: rgba(212,175,55,.25); }
+    html, body { height: 100%; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: radial-gradient(1200px 400px at 50% 0%, rgba(212,175,55,.08), transparent 60%), var(--bg); color: var(--fg); }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 28px 16px 40px; }
+    .top { display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between; }
+    .title { font-weight: 700; letter-spacing: .2px; }
+    .title small { display:block; color: var(--muted); font-weight: 500; margin-top:4px; }
+    .card { border: 1px solid rgba(255,255,255,.12); background: var(--card); border-radius: 14px; padding: 12px; }
+    .row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+    .btn { cursor:pointer; border:1px solid var(--border); background: rgba(212,175,55,.12); color: var(--fg); padding: 9px 12px; border-radius: 10px; font-weight: 650; }
+    .btn:disabled { opacity: .45; cursor:not-allowed; }
+    input[type="file"] { color: var(--muted); }
+    input[type="range"] { width: min(520px, 100%); accent-color: var(--gold); }
+    .muted { color: var(--muted); font-size: 12px; }
+    canvas { width: 100%; height: auto; background:#0a0a0a; border-radius: 12px; border:1px solid rgba(212,175,55,.2); }
+    .grid { display:grid; grid-template-columns: 1fr; gap:12px; margin-top:14px; }
+    @media (min-width: 900px) { .grid { grid-template-columns: 2fr 1fr; } }
+    .kv { display:grid; grid-template-columns: 120px 1fr; gap:8px 10px; font-size: 12px; color: var(--muted); }
+    .kv b { color: var(--fg); font-weight: 650; }
+    code { color: var(--gold); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div class="title">
+        Pose Viewer (local)
+        <small>Load <code>data.jsonl</code> and preview keypoints locally (no server).</small>
+      </div>
+      <div class="row">
+        <input id="file" type="file" accept=".jsonl,.json" />
+        <button id="prev" class="btn" disabled>Prev</button>
+        <button id="next" class="btn" disabled>Next</button>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:12px;">
+      <div class="row" style="justify-content:space-between;">
+        <div class="row">
+          <button id="reset" class="btn" disabled>Reset view</button>
+          <span id="status" class="muted">Load a JSONL file to begin.</span>
+        </div>
+        <input id="slider" type="range" min="0" max="0" value="0" disabled />
+      </div>
+      <div style="margin-top:12px;">
+        <canvas id="c" width="960" height="540"></canvas>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="kv">
+          <div>Frame</div><div><b id="frameLabel">—</b></div>
+          <div>Source</div><div><b id="srcLabel">—</b></div>
+          <div>timestamp_ms</div><div><b id="tsLabel">—</b></div>
+        </div>
+        <p class="muted" style="margin:10px 0 0;">
+          Controls: drag to pan, mouse wheel to zoom, slider to navigate frames.
+        </p>
+      </div>
+      <div class="card">
+        <p class="muted" style="margin:0 0 8px;">
+          Tip: For a richer in-app viewer, visit <code>/viewer</code> on the website.
+        </p>
+        <p class="muted" style="margin:0;">
+          This file is intentionally small and easy to modify.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const POSE_EDGES = [
+      ["left_shoulder","right_shoulder"],
+      ["left_shoulder","left_elbow"],["left_elbow","left_wrist"],
+      ["right_shoulder","right_elbow"],["right_elbow","right_wrist"],
+      ["left_shoulder","left_hip"],["right_shoulder","right_hip"],
+      ["left_hip","right_hip"],
+      ["left_hip","left_knee"],["left_knee","left_ankle"],
+      ["right_hip","right_knee"],["right_knee","right_ankle"],
+    ];
+    const HAND_EDGES = [
+      ["wrist","thumb_cmc"],["thumb_cmc","thumb_mcp"],["thumb_mcp","thumb_ip"],["thumb_ip","thumb_tip"],
+      ["wrist","index_finger_mcp"],["index_finger_mcp","index_finger_pip"],["index_finger_pip","index_finger_dip"],["index_finger_dip","index_finger_tip"],
+      ["wrist","middle_finger_mcp"],["middle_finger_mcp","middle_finger_pip"],["middle_finger_pip","middle_finger_dip"],["middle_finger_dip","middle_finger_tip"],
+      ["wrist","ring_finger_mcp"],["ring_finger_mcp","ring_finger_pip"],["ring_finger_pip","ring_finger_dip"],["ring_finger_dip","ring_finger_tip"],
+      ["wrist","pinky_mcp"],["pinky_mcp","pinky_pip"],["pinky_pip","pinky_dip"],["pinky_dip","pinky_tip"],
+    ];
+
+    const fileEl = document.getElementById('file');
+    const slider = document.getElementById('slider');
+    const statusEl = document.getElementById('status');
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+    const resetBtn = document.getElementById('reset');
+    const frameLabel = document.getElementById('frameLabel');
+    const srcLabel = document.getElementById('srcLabel');
+    const tsLabel = document.getElementById('tsLabel');
+
+    const c = document.getElementById('c');
+    const ctx = c.getContext('2d');
+    let rows = [];
+    let idx = 0;
+
+    // pan/zoom
+    let scale = 1.0;
+    let offX = 0, offY = 0;
+    let dragging = false;
+    let lastX = 0, lastY = 0;
+
+    function resetView() { scale = 1.0; offX = 0; offY = 0; draw(); }
+    function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+
+    function draw() {
+      ctx.setTransform(1,0,0,1,0,0);
+      ctx.clearRect(0,0,c.width,c.height);
+      ctx.fillStyle = '#0a0a0a';
+      ctx.fillRect(0,0,c.width,c.height);
+
+      const r = rows[idx];
+      if (!r || !r.keypoints) return;
+
+      // labels
+      frameLabel.textContent = `${idx+1} / ${rows.length}  (frame_id=${r.frame_id ?? '?'})`;
+      srcLabel.textContent = (r.original_filename ?? '—');
+      tsLabel.textContent = (typeof r.timestamp_ms === 'number' ? r.timestamp_ms.toFixed(2) : (r.timestamp_ms ?? '—'));
+
+      // apply view transform (pan/zoom around center)
+      const cx = c.width/2, cy = c.height/2;
+      ctx.translate(cx + offX, cy + offY);
+      ctx.scale(scale, scale);
+      ctx.translate(-cx, -cy);
+
+      const W = c.width, H = c.height;
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = '#D4AF37';
+
+      const edges = (r.keypoint_model === 'mediapipe_hands' || ('thumb_tip' in r.keypoints)) ? HAND_EDGES : POSE_EDGES;
+      for (const [a,b] of edges) {
+        const pa = r.keypoints[a], pb = r.keypoints[b];
+        if (!pa || !pb) continue;
+        const ax = (pa.x ?? 0) * W, ay = (pa.y ?? 0) * H;
+        const bx = (pb.x ?? 0) * W, by = (pb.y ?? 0) * H;
+        ctx.beginPath(); ctx.moveTo(ax,ay); ctx.lineTo(bx,by); ctx.stroke();
+      }
+      ctx.fillStyle = '#F4E4BC';
+      for (const k in r.keypoints) {
+        const p = r.keypoints[k];
+        const x = (p.x ?? 0) * W, y = (p.y ?? 0) * H;
+        ctx.beginPath(); ctx.arc(x,y,3,0,Math.PI*2); ctx.fill();
+      }
+    }
+
+    function setIndex(i) {
+      if (!rows.length) return;
+      idx = clamp(i, 0, rows.length - 1);
+      slider.value = String(idx);
+      draw();
+    }
+
+    fileEl.addEventListener('change', async (e) => {
+      const f = e.target.files && e.target.files[0];
+      if (!f) return;
+      const text = await f.text();
+      const lines = text.split(/\r?\n/).filter(l => l.trim().length);
+      rows = [];
+      for (const line of lines) {
+        try { rows.push(JSON.parse(line)); } catch {}
+      }
+      idx = 0;
+      slider.max = String(Math.max(0, rows.length - 1));
+      slider.value = '0';
+      slider.disabled = rows.length === 0;
+      prevBtn.disabled = rows.length === 0;
+      nextBtn.disabled = rows.length === 0;
+      resetBtn.disabled = rows.length === 0;
+      statusEl.textContent = rows.length ? `Loaded ${rows.length} rows.` : 'No rows parsed.';
+      resetView();
+    });
+
+    slider.addEventListener('input', (e) => setIndex(Number(e.target.value)));
+    prevBtn.addEventListener('click', () => setIndex(idx - 1));
+    nextBtn.addEventListener('click', () => setIndex(idx + 1));
+    resetBtn.addEventListener('click', () => resetView());
+
+    c.addEventListener('mousedown', (e) => { dragging = true; lastX = e.clientX; lastY = e.clientY; });
+    window.addEventListener('mouseup', () => dragging = false);
+    window.addEventListener('mousemove', (e) => {
+      if (!dragging) return;
+      offX += (e.clientX - lastX);
+      offY += (e.clientY - lastY);
+      lastX = e.clientX; lastY = e.clientY;
+      draw();
+    });
+    c.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const delta = Math.sign(e.deltaY);
+      const factor = delta > 0 ? 0.92 : 1.08;
+      scale = clamp(scale * factor, 0.4, 6.0);
+      draw();
+    }, { passive: false });
+  </script>
+</body>
+</html>

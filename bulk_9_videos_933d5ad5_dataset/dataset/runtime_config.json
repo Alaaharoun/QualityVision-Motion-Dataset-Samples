@@ -1,0 +1,130 @@
+{
+  "schema_version": "1.0.0",
+  "bulk_pipeline_version": "2",
+  "job_id": "bulk_9_videos_933d5ad5",
+  "gaussian_smoothing": {
+    "enabled": true,
+    "gaussian_window": 5,
+    "axes_applied": [
+      "x",
+      "y",
+      "z"
+    ],
+    "visibility_smoothed": false,
+    "raw_hq_gaussian_smooth": true,
+    "raw_hq_temporal_smoothing": true,
+    "raw_payload_gaussian_smooth": null
+  },
+  "augmentations": {
+    "horizontal_flip": true,
+    "keypoint_noise_std": 0.015,
+    "random_scale_translate": {
+      "enabled": true,
+      "scale_min": 0.88,
+      "scale_max": 1.12,
+      "translate_max_norm": 0.06,
+      "pivot": "wrist"
+    },
+    "raw_payload_mirror_augment": true,
+    "raw_payload_keypoint_noise_augment": true,
+    "raw_payload_random_scale_translate_augment": true,
+    "resolved_parameters_for_ml_engineers": {
+      "description": "Exact augmentation hyperparameters used (or resolved) for this export. Use these values to reproduce or match training-time jitter.",
+      "keypoint_noise": {
+        "applied_to_duplicate_rows": true,
+        "distribution": "gaussian_independent_per_coordinate",
+        "gaussian_sigma_normalized_xyz": 0.015,
+        "axes_perturbed": [
+          "x",
+          "y",
+          "z"
+        ],
+        "visibility_perturbed": false,
+        "sampling_model": "Each augmented row: for every landmark, x,y,z each get an independent draw from Normal(0, gaussian_sigma_normalized_xyz^2) added to the accepted keypoint; visibility is copied unchanged.",
+        "typical_magnitude_in_sigma_units": {
+          "about_68_percent_of_perturbations_per_axis_within_plus_minus_1_sigma": 0.015,
+          "about_95_percent_within_plus_minus_2_sigma": 0.03,
+          "note": "Gaussian is unbounded; most mass lies within ±2σ per axis. Exact draws are not stored per row."
+        }
+      },
+      "random_scale_translate": {
+        "applied_to_duplicate_rows": true,
+        "pivot": "wrist",
+        "scale_uniform_range": {
+          "min": 0.88,
+          "max": 1.12
+        },
+        "sampling_model_scale": "Uniform on [0.880000, 1.120000] (inclusive bounds).",
+        "translation_uniform_range_per_axis": {
+          "tx": {
+            "min": -0.06,
+            "max": 0.06
+          },
+          "ty": {
+            "min": -0.06,
+            "max": 0.06
+          }
+        },
+        "sampling_model_translation": "tx and ty each Uniform on [-0.060000, +0.060000] in normalized image space.",
+        "post_transform": "x and y clamped to [0, 1] after scale + translation; z unchanged."
+      }
+    }
+  },
+  "stride_requested": 1,
+  "fps_cap": 25.0,
+  "quality_thresholds": {
+    "min_frame_quality_score": 0.35,
+    "min_avg_landmark_visibility": 0.5,
+    "min_lower_body_visibility": null,
+    "min_motion_local": 0.6
+  },
+  "high_density_mode": false,
+  "max_per_video_effective": 0,
+  "max_per_video_env": 0,
+  "max_per_video_payload": 0,
+  "frame_features_enabled": true,
+  "motion_intelligence": {
+    "enabled": true
+  },
+  "client_flags": {
+    "dexterous_hand_intent": true,
+    "dexterous_hand_features_enabled": true,
+    "camera_pov": null,
+    "object_interaction_defaults": false,
+    "product_packaging": false
+  },
+  "payload_top_level_keys": [
+    "action_label",
+    "dataset_license",
+    "dexterous_hand_intent",
+    "frame_stride",
+    "hq",
+    "keypoint_noise_augment",
+    "keypoint_noise_std",
+    "max_frames_per_video",
+    "mirror_augment",
+    "motion_intelligence",
+    "openrouter_model",
+    "pipeline_mode",
+    "random_scale_translate_augment",
+    "rights_confirmed"
+  ],
+  "hq_keys": [
+    "augmentations",
+    "export_coco",
+    "export_csv",
+    "export_hq_only",
+    "gaussian_smooth",
+    "gaussian_window",
+    "min_avg_landmark_visibility",
+    "min_frame_quality",
+    "min_lower_body_visibility",
+    "min_motion_local",
+    "preset",
+    "temporal_smoothing",
+    "weight_avg_visibility",
+    "weight_lower_body",
+    "weight_motion_local"
+  ],
+  "config_warnings": []
+}

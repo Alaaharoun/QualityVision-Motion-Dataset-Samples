@@ -1,0 +1,368 @@
+{
+  "schema_version": "1.3.1",
+  "job_id": "bulk_9_videos_933d5ad5",
+  "batch": true,
+  "video_count": 9,
+  "videos": [
+    {
+      "original_filename": "hand_movement_pexels_856437.mp4",
+      "fps": 25.0,
+      "exported_frames": 1472,
+      "motion_intelligence": {
+        "enabled": true,
+        "frames_with_intel": 368,
+        "mean_speed_combined": 0.373811,
+        "mean_stride_length": 0.0,
+        "mean_step_frequency_hz": 0.0,
+        "motion_class_histogram": {
+          "finger_active": 366,
+          "hand_translating": 1,
+          "static": 1
+        }
+      },
+      "sequence": {
+        "frame_count": 1472,
+        "action_label": "Dexterous Hand movements",
+        "avg_landmark_visibility": 0.918048,
+        "hip_center_displacement_mean_norm": 0.0,
+        "hip_center_path_sum_norm": 0.0,
+        "inter_frame_steps": 1471,
+        "velocity_proxy_available": true,
+        "velocity_mean": 0.0,
+        "velocity_std": 0.0,
+        "acceleration_mean": 0.0,
+        "avg_stride_length": 0.0,
+        "body_height_norm": 0.0,
+        "arm_swing_amplitude": 0.0,
+        "step_frequency": 25.0,
+        "motion_consistency": 1.0
+      }
+    },
+    {
+      "original_filename": "hand_movement_pexels_4968942.mp4",
+      "fps": 29.97002997002997,
+      "exported_frames": 240,
+      "motion_intelligence": {
+        "enabled": true,
+        "frames_with_intel": 60,
+        "mean_speed_combined": 0.552561,
+        "mean_stride_length": 0.0,
+        "mean_step_frequency_hz": 0.0,
+        "motion_class_histogram": {
+          "finger_active": 59,
+          "static": 1
+        }
+      },
+      "sequence": {
+        "frame_count": 240,
+        "action_label": "Dexterous Hand movements",
+        "avg_landmark_visibility": 0.955139,
+        "hip_center_displacement_mean_norm": 0.0,
+        "hip_center_path_sum_norm": 0.0,
+        "inter_frame_steps": 239,
+        "velocity_proxy_available": true,
+        "velocity_mean": 0.0,
+        "velocity_std": 0.0,
+        "acceleration_mean": 0.0,
+        "avg_stride_length": 0.0,
+        "body_height_norm": 0.0,
+        "arm_swing_amplitude": 0.0,
+        "step_frequency": 29.97002997002997,
+        "motion_consistency": 1.0
+      }
+    },
+    {
+      "original_filename": "hand_movement_pexels_5020484.mp4",
+      "fps": 29.97002997002997,
+      "exported_frames": 2312,
+      "motion_intelligence": {
+        "enabled": true,
+        "frames_with_intel": 578,
+        "mean_speed_combined": 0.408062,
+        "mean_stride_length": 0.0,
+        "mean_step_frequency_hz": 0.0,
+        "motion_class_histogram": {
+          "finger_active": 552,
+          "manipulation": 20,
+          "static": 6
+        }
+      },
+      "sequence": {
+        "frame_count": 2312,
+        "action_label": "Dexterous Hand movements",
+        "avg_landmark_visibility": 0.985793,
+        "hip_center_displacement_mean_norm": 0.0,
+        "hip_center_path_sum_norm": 0.0,
+        "inter_frame_steps": 2311,
+        "velocity_proxy_available": true,
+        "velocity_mean": 0.0,
+        "velocity_std": 0.0,
+        "acceleration_mean": 0.0,
+        "avg_stride_length": 0.0,
+        "body_height_norm": 0.0,
+        "arm_swing_amplitude": 0.0,
+        "step_frequency": 29.97002997002997,
+        "motion_consistency": 1.0
+      }
+    },
+    {
+      "original_filename": "hand_movement_pexels_5095288.mp4",
+      "fps": 25.0,
+      "exported_frames": 0,
+      "motion_intelligence": {
+        "enabled": true,
+        "frames_with_intel": 0,
+        "mean_speed_combined": 0.0,
+        "mean_stride_length": 0.0,
+        "mean_step_frequency_hz": 0.0,
+        "motion_class_histogram": {}
+      },
+      "sequence": {
+        "frame_count": 0,
+        "action_label": "Dexterous Hand movements",
+        "avg_landmark_visibility": 0.0,
+        "hip_center_displacement_mean_norm": 0.0,
+        "hip_center_path_sum_norm": 0.0,
+        "inter_frame_steps": 0,
+        "velocity_proxy_available": false,
+        "velocity_mean": 0.0,
+        "velocity_std": 0.0,
+        "acceleration_mean": 0.0,
+        "avg_stride_length": 0.0,
+        "body_height_norm": 0.0,
+        "arm_swing_amplitude": 0.0,
+        "step_frequency": 25.0,
+        "motion_consistency": 0.0
+      }
+    },
+    {
+      "original_filename": "hand_movement_pexels_5738573.mp4",
+      "fps": 29.97002997002997,
+      "exported_frames": 736,
+      "motion_intelligence": {
+        "enabled": true,
+        "frames_with_intel": 184,
+        "mean_speed_combined": 0.290359,
+        "mean_stride_length": 0.0,
+        "mean_step_frequency_hz": 0.0,
+        "motion_class_histogram": {
+          "finger_active": 181,
+          "manipulation": 2,
+          "static": 1
+        }
+      },
+      "sequence": {
+        "frame_count": 736,
+        "action_label": "Dexterous Hand movements",
+        "avg_landmark_visibility": 0.977786,
+        "hip_center_displacement_mean_norm": 0.0,
+        "hip_center_path_sum_norm": 0.0,
+        "inter_frame_steps": 735,
+        "velocity_proxy_available": true,
+        "velocity_mean": 0.0,
+        "velocity_std": 0.0,
+        "acceleration_mean": 0.0,
+        "avg_stride_length": 0.0,
+        "body_height_norm": 0.0,
+        "arm_swing_amplitude": 0.0,
+        "step_frequency": 29.97002997002997,
+        "motion_consistency": 1.0
+      }
+    },
+    {
+      "original_filename": "hand_movement_pexels_5902548.mp4",
+      "fps": 29.97002997002997,
+      "exported_frames": 848,
+      "motion_intelligence": {
+        "enabled": true,
+        "frames_with_intel": 212,
+        "mean_speed_combined": 0.498818,
+        "mean_stride_length": 0.0,
+        "mean_step_frequency_hz": 0.0,
+        "motion_class_histogram": {
+          "finger_active": 210,
+          "manipulation": 1,
+          "static": 1
+        }
+      },
+      "sequence": {
+        "frame_count": 848,
+        "action_label": "Dexterous Hand movements",
+        "avg_landmark_visibility": 0.936073,
+        "hip_center_displacement_mean_norm": 0.0,
+        "hip_center_path_sum_norm": 0.0,
+        "inter_frame_steps": 847,
+        "velocity_proxy_available": true,
+        "velocity_mean": 0.0,
+        "velocity_std": 0.0,
+        "acceleration_mean": 0.0,
+        "avg_stride_length": 0.0,
+        "body_height_norm": 0.0,
+        "arm_swing_amplitude": 0.0,
+        "step_frequency": 29.97002997002997,
+        "motion_consistency": 1.0
+      }
+    },
+    {
+      "original_filename": "hand_movement_pexels_6268981.mp4",
+      "fps": 25.0,
+      "exported_frames": 1952,
+      "motion_intelligence": {
+        "enabled": true,
+        "frames_with_intel": 488,
+        "mean_speed_combined": 1.470533,
+        "mean_stride_length": 0.0,
+        "mean_step_frequency_hz": 0.0,
+        "motion_class_histogram": {
+          "finger_active": 487,
+          "static": 1
+        }
+      },
+      "sequence": {
+        "frame_count": 1952,
+        "action_label": "Dexterous Hand movements",
+        "avg_landmark_visibility": 0.880347,
+        "hip_center_displacement_mean_norm": 0.0,
+        "hip_center_path_sum_norm": 0.0,
+        "inter_frame_steps": 1951,
+        "velocity_proxy_available": true,
+        "velocity_mean": 0.0,
+        "velocity_std": 0.0,
+        "acceleration_mean": 0.0,
+        "avg_stride_length": 0.0,
+        "body_height_norm": 0.0,
+        "arm_swing_amplitude": 0.0,
+        "step_frequency": 25.0,
+        "motion_consistency": 1.0
+      }
+    },
+    {
+      "original_filename": "hand_movement_pexels_28525079.mp4",
+      "fps": 59.94005994005994,
+      "exported_frames": 604,
+      "motion_intelligence": {
+        "enabled": true,
+        "frames_with_intel": 151,
+        "mean_speed_combined": 0.461485,
+        "mean_stride_length": 0.0,
+        "mean_step_frequency_hz": 0.0,
+        "motion_class_histogram": {
+          "finger_active": 149,
+          "manipulation": 1,
+          "static": 1
+        }
+      },
+      "sequence": {
+        "frame_count": 604,
+        "action_label": "Dexterous Hand movements",
+        "avg_landmark_visibility": 0.992343,
+        "hip_center_displacement_mean_norm": 0.0,
+        "hip_center_path_sum_norm": 0.0,
+        "inter_frame_steps": 603,
+        "velocity_proxy_available": true,
+        "velocity_mean": 0.0,
+        "velocity_std": 0.0,
+        "acceleration_mean": 0.0,
+        "avg_stride_length": 0.0,
+        "body_height_norm": 0.0,
+        "arm_swing_amplitude": 0.0,
+        "step_frequency": 59.94005994005994,
+        "motion_consistency": 1.0
+      }
+    },
+    {
+      "original_filename": "hand_movement_pexels_30614796.mp4",
+      "fps": 60.0,
+      "exported_frames": 948,
+      "motion_intelligence": {
+        "enabled": true,
+        "frames_with_intel": 237,
+        "mean_speed_combined": 0.363739,
+        "mean_stride_length": 0.0,
+        "mean_step_frequency_hz": 0.0,
+        "motion_class_histogram": {
+          "finger_active": 236,
+          "static": 1
+        }
+      },
+      "sequence": {
+        "frame_count": 948,
+        "action_label": "Dexterous Hand movements",
+        "avg_landmark_visibility": 0.950595,
+        "hip_center_displacement_mean_norm": 0.0,
+        "hip_center_path_sum_norm": 0.0,
+        "inter_frame_steps": 947,
+        "velocity_proxy_available": true,
+        "velocity_mean": 0.0,
+        "velocity_std": 0.0,
+        "acceleration_mean": 0.0,
+        "avg_stride_length": 0.0,
+        "body_height_norm": 0.0,
+        "arm_swing_amplitude": 0.0,
+        "step_frequency": 60.0,
+        "motion_consistency": 1.0
+      }
+    }
+  ],
+  "aggregate": {
+    "total_frames": 9112,
+    "action_label": "Dexterous Hand movements",
+    "stride": 1,
+    "mean_quality_score": 0.9715,
+    "mean_avg_landmark_visibility": 0.942951,
+    "fps_mean": 34.98001998001998,
+    "motion_intelligence": {
+      "enabled": true,
+      "domain": "hand_dexterous",
+      "frames_with_intel": 2278,
+      "mean_speed_combined": 0.631809,
+      "mean_finger_tip_speed_mean": 0.631809,
+      "mean_wrist_speed_norm_per_sec": 0.450045,
+      "hand_activity_histogram": {
+        "finger_active": 2240,
+        "hand_translating": 1,
+        "manipulation": 24,
+        "static": 13
+      },
+      "grip_type_histogram": {
+        "neutral": 3,
+        "open": 1444,
+        "pinch": 227,
+        "power": 33,
+        "precision": 571
+      }
+    },
+    "buyer_marketing": {
+      "tagline": "Train your AI on real hand motion data \u2014 ready in minutes.",
+      "commercial_use": "Unlike many academic datasets, Quality Vision B2B exports are intended for commercial use under your agreed license terms \u2014 see LICENSE_EXPORT.txt in the ZIP and manifest.license / dataset_license (not limited to research-only).",
+      "feature_highlights": [
+        "21-point hand keypoints (MediaPipe-style)",
+        "Temporal sequences with timestamps",
+        "Per-frame action field + metadata/actions.csv (optional per-frame taxonomy via job payload)",
+        "Hand\u2013object interaction metadata when hq.object_interaction is configured",
+        "Optional camera_pov: first_person | third_person (manual)",
+        "JSONL + optional COCO-like keypoints export",
+        "PyTorch loader guide: examples/README_PYTORCH.md"
+      ],
+      "use_cases": [
+        {
+          "label": "Robotics",
+          "emoji": "\ud83e\udd16"
+        },
+        {
+          "label": "AR/VR",
+          "emoji": "\ud83e\udd7d"
+        },
+        {
+          "label": "Gesture recognition",
+          "emoji": "\u270b"
+        },
+        {
+          "label": "Human behavior AI",
+          "emoji": "\ud83e\udde0"
+        }
+      ]
+    }
+  },
+  "notes": "Batch export: `videos[]` holds one sequence block per source file. data.jsonl concatenates all frames with global frame_id and source_video_index; per_video/video_*.jsonl mirrors the same records split by source; see bulk_combined_manifest.json for paths."
+}
