@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.3.1",
+  "job_id": "bulk_10_videos_69f3288a",
+  "video_count": 10,
+  "videos": [
+    {
+      "original_filename": "hand_movement_pexels_856437.mp4",
+      "fps": 25.0,
+      "exported_frames": 1472,
+      "motion_intelligence": {
+        "enabled": true,
+        "frames_with_intel": 368,
+        "mean_speed_combined": 0.373811,
+        "mean_stride_length": 0.0,
+        "mean_step_frequency_hz": 0.0,
+        "motion_class_histogram": {
+          "finger_active": 366,
+          "hand_translating": 1,
+          "static": 1
+        }
+      },
+      "sequence": {
+        "frame_count": 1472,
+        "action_label": "Dexterous Hand movements",
+        "avg_landmark_visibility": 0.918048,
+        "hip_center_displacement_mean_norm": 0.0,
+        "hip_center_path_sum_norm": 0.0,
+        "inter_frame_steps": 1471,
+        "velocity_proxy_available": true,
+        "velocity_mean": 0.0,
+        "velocity_std": 0.0,
+        "acceleration_mean": 0.0,
+        "avg_stride_length": 0.0,
+        "body_height_norm": 0.0,
+        "arm_swing_amplitude": 0.0,
+        "step_frequency": 25.0,
+        "motion_consistency": 1.0
+      }
+    },
+    {
+      "original_filename": "hand_movement_pexels_4968942.mp4",
+      "fps": 29.97002997002997,
+      "exported_frames": 240,
+      "motion_intelligence": {
+        "enabled": true,
+        "frames_with_intel": 60,
+        "mean_speed_combined": 0.552561,
+        "mean_stride_length": 0.0,
+        "mean_step_frequency_hz": 0.0,
+        "motion_class_histogram": {
+          "finger_active": 59,
+          "static": 1
+        }
+      },
+      "sequence": {
+        "frame_count": 240,
+        "action_label": "Dexterous Hand movements",
+        "avg_landmark_visibility": 0.955139,
+        "hip_center_displacement_mean_norm": 0.0,
+        "hip_center_path_sum_norm": 0.0,
+        "inter_frame_steps": 239,
+        "velocity_proxy_available": true,
+        "velocity_mean": 0.0,
+        "velocity_std": 0.0,
+        "acceleration_mean": 0.0,
+        "avg_stride_length": 0.0,
+        "body_height_norm": 0.0,
+        "arm_swing_amplitude": 0.0,
+        "step_frequency": 29.97002997002997,
+        "motion_consistency": 1.0
+      }
+    }
+  ]
+}

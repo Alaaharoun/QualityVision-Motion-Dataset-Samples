@@ -1,0 +1,46 @@
+{
+  "job_id": "bulk_10_videos_69f3288a",
+  "hq_export": true,
+  "config_warnings": [],
+  "thresholds": {
+    "min_frame_quality_score": 0.35,
+    "min_avg_landmark_visibility": 0.5,
+    "min_lower_body_visibility": null,
+    "min_motion_local": 0.6
+  },
+  "filter_report": {
+    "enabled": true,
+    "thresholds": {
+      "min_frame_quality_score": 0.35,
+      "min_avg_landmark_visibility": 0.5,
+      "min_lower_body_visibility": null,
+      "min_motion_local": 0.6
+    },
+    "frames_total": 4107,
+    "frames_accepted_pre_augmentation": 2307,
+    "frames_exported_including_augmentations": 9228,
+    "frames_rejected": 1800,
+    "accepted_percentage": 56.17,
+    "acceptance_rate_note": "accepted_percentage = frames_accepted_pre_augmentation / frames_total (sampled). frames_exported_including_augmentations includes augmentation duplicates.",
+    "quality_score_formula": "Per frame: frame_quality_score = 0.5 * avg_landmark_visibility + 0.0 * lower_body_visibility + 0.5 * motion_local.",
+    "mean_metrics_accepted_frames": {
+      "mean_frame_quality_score": 0.9645,
+      "mean_avg_landmark_visibility": 0.929,
+      "mean_lower_body_visibility": 0.0,
+      "mean_motion_local": 1.0
+    },
+    "quality_score_mean_filtered": 0.9645,
+    "mean_avg_landmark_visibility_filtered": 0.929
+  },
+  "documentation": {
+    "sequence_quality_score": "Sequence quality_score uses motion_consistency from hip displacement series.",
+    "per_frame_scores": "Per frame: frame_quality_score = 0.5 * avg_landmark_visibility + 0.0 * lower_body_visibility + 0.5 * motion_local.",
+    "buyer_artifacts": {
+      "ONEPAGER.md": "One-page marketing + metrics summary",
+      "README_dataset.md": "Layout and dexterous / pose notes",
+      "examples/README_PYTORCH.md": "Optional PyTorch Dataset snippet",
+      "metadata/actions.csv": "frame_id,action when action column is emitted",
+      "buyer_marketing": "features.json \u2192 aggregate.buyer_marketing and global_stats.buyer_marketing (hand exports)"
+    }
+  }
+}

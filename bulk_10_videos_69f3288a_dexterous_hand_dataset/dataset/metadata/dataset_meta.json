@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1.0",
+  "job_id": "bulk_10_videos_69f3288a",
+  "action_taxonomy_column": "action",
+  "actions_table_csv": "metadata/actions.csv",
+  "notes": "Per-frame actions: optional hq.per_frame_actions / payload.per_frame_actions overrides; otherwise each row uses payload.action_label. camera_pov is optional (manual).",
+  "aggregate": {
+    "exported_frames_including_augmentations": 9228,
+    "video_count": 10,
+    "stride": 1,
+    "fps_mean": 26.994005994005995,
+    "primary_action_label": "Dexterous Hand movements",
+    "action_distribution": {
+      "Dexterous Hand movements": 9228
+    },
+    "mean_frame_quality_score": 0.9645,
+    "mean_avg_landmark_visibility": 0.928979
+  },
+  "export": {
+    "keypoint_model": "mediapipe_hands",
+    "keypoints_count": 21,
+    "dexterous_hand_export": true
+  },
+  "quality_thresholds_applied": {
+    "min_frame_quality_score": 0.35,
+    "min_avg_landmark_visibility": 0.5,
+    "min_lower_body_visibility": null,
+    "min_motion_local": 0.6
+  },
+  "hand_activity_csv": "metadata/hand_activity.csv",
+  "metadata_note": "actions.csv repeats the job action label unless hq.per_frame_actions is used. hand_activity.csv (when present) adds per-frame dexterous labels from the engine."
+}

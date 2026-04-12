@@ -1,8 +1,27 @@
 # QualityVision Motion Dataset Samples
 
-**High-quality 2D pose estimation data for walking** — HQ-filtered frames, temporal smoothing on accepted frames in the parent pipeline, and sequence-level diagnostics compatible with the [Quality Vision](https://github.com/Alaaharoun) Motion Dataset Engine export format.
+**High-quality motion-export samples** — including **walking / locomotion** (full-body pose) and **Dexterous Hand movements** (21-point MediaPipe Hands + dexterous analytics). Exports use HQ filtering, temporal smoothing where enabled, and the same JSONL + metadata layout as the [Quality Vision](https://github.com/Alaaharoun) Motion Dataset Engine.
 
 This repository hosts **public pose-export samples** for **evaluation, demos, and pilot integrations**. It is **not** a full commercial release; larger batches and redistribution terms are negotiated separately.
+
+## Dexterous Hand movements — 10-video public sample (2026)
+
+**Title:** **Dexterous Hand movements** (hand-centric bulk export, production-style `dataset/` tree).
+
+[`bulk_10_videos_69f3288a_dexterous_hand_dataset/`](./bulk_10_videos_69f3288a_dexterous_hand_dataset/) — preview of what a **commercial hand bundle** looks like: **10** source clips, **thousands** of HQ rows in `data.jsonl` (with augmentations per job settings), plus `metadata/`, `global_stats.json`, `features.json`, dexterous histograms, and a full **ONEPAGER** spec sheet.
+
+| Metric | Value (see [`dataset/ONEPAGER.md`](./bulk_10_videos_69f3288a_dexterous_hand_dataset/dataset/ONEPAGER.md)) |
+|--------|----------------------------------------------------------------------------------------------------------------------------------|
+| Job ID | `bulk_10_videos_69f3288a` |
+| Action label | **Dexterous Hand movements** |
+| Videos processed | **10** |
+| Exported rows in merged `data.jsonl` (HQ, incl. augmentations) | **9228** |
+| Accepted frames (pre-augmentation) | **2307** |
+| Mean quality score (accepted) | **~0.9645** |
+| Keypoints | **MediaPipe Hands** (21 landmarks) |
+| Dexterous extras | Finger angles, grip heuristics, hand `motion_intelligence` (v3), activity / grip histograms |
+
+**Larger commercial offering (not in this repo):** Quality Vision can deliver **~140,000+ HQ frames** and **multi-clip** packages segmented for **specific, precise dexterous motions** — negotiated scope, licensing, and delivery format. See **Ready-made datasets** below and [`dataset-pricing`](https://qvision.space/dataset-pricing).
 
 ## Ready-made datasets (commercial)
 
@@ -30,7 +49,8 @@ Start from [`bulk_24_videos_6a173caf_dataset/dataset/data.jsonl`](./bulk_24_vide
 
 | Path | Contents |
 |------|-----------|
-| [`bulk_24_videos_6a173caf_dataset/`](./bulk_24_videos_6a173caf_dataset/) | **Primary sample:** full `dataset/` tree (JSONL, manifests, stats, per-video splits). |
+| [`bulk_10_videos_69f3288a_dexterous_hand_dataset/`](./bulk_10_videos_69f3288a_dexterous_hand_dataset/) | **Dexterous Hand movements:** 10-video hand bulk export (JSONL + `metadata/` + ONEPAGER). |
+| [`bulk_24_videos_6a173caf_dataset/`](./bulk_24_videos_6a173caf_dataset/) | **Primary walking sample:** full `dataset/` tree (JSONL, manifests, stats, per-video splits). |
 | [`walking_sample_v1/`](./walking_sample_v1/) | **Compact legacy clip** (~80 frames) for quick parsing tests; older quality headline (~0.63 sequence score). |
 | [`bulk_2_videos_28fb9459_dataset/`](./bulk_2_videos_28fb9459_dataset/) | **Compact running bulk export:** full `dataset/` tree for 2 running clips (includes per-video splits + rejected frames). |
 | [`With Original videos/`](./With%20Original%20videos/) | Older pilot bulk folder (smaller export); kept for history. Prefer the **bulk_24** tree above for current numbers. |
@@ -65,10 +85,11 @@ It includes a full `dataset/` tree: merged `data.jsonl`, `low_quality_frames.jso
 ## Quick start
 
 1. Clone the repository.
-2. **Full sample:** parse `bulk_24_videos_6a173caf_dataset/dataset/data.jsonl` — one JSON object per line (see [`bulk_24_videos_6a173caf_dataset/README.md`](./bulk_24_videos_6a173caf_dataset/README.md) for authentic vs augmented counts).
-3. **Quick test:** parse `walking_sample_v1/data.jsonl` (small file).
-4. Read `features.json` / `global_stats.json` under the folder you chose for aggregates.
-5. (Optional) Regenerate preview images:
+2. **Dexterous Hand movements:** read [`bulk_10_videos_69f3288a_dexterous_hand_dataset/dataset/ONEPAGER.md`](./bulk_10_videos_69f3288a_dexterous_hand_dataset/dataset/ONEPAGER.md), then parse [`bulk_10_videos_69f3288a_dexterous_hand_dataset/dataset/data.jsonl`](./bulk_10_videos_69f3288a_dexterous_hand_dataset/dataset/data.jsonl) (one JSON object per line).
+3. **Walking (flagship):** parse `bulk_24_videos_6a173caf_dataset/dataset/data.jsonl` — one JSON object per line (see [`bulk_24_videos_6a173caf_dataset/README.md`](./bulk_24_videos_6a173caf_dataset/README.md) for authentic vs augmented counts).
+4. **Quick test:** parse `walking_sample_v1/data.jsonl` (small file).
+5. Read `features.json` / `global_stats.json` under the folder you chose for aggregates.
+6. (Optional) Regenerate preview images:
 
 ```bash
 python scripts/render_pose_preview.py
@@ -78,13 +99,15 @@ Requirements: Python 3.10+ and `matplotlib` (`pip install matplotlib`).
 
 ## Format
 
-- **Per frame:** `keypoints` dictionary (BlazePose-style landmark names), `timestamp_ms`, `action_label`, `frame_id`, etc.
+- **Walking / full-body samples:** `keypoints` use **BlazePose-style** landmark names (33 landmarks), `timestamp_ms`, `action_label`, `frame_id`, etc.
+- **Dexterous Hand movements samples:** `keypoints` use **MediaPipe Hands** landmark names (21 points); rows may include **`dexterous_hand`** and hand-centric **`motion_intelligence`** — see `SCHEMA.md` / `ONEPAGER.md` inside that folder.
 - **Coordinates:** Normalized image space (see `features.json` notes).
 - **License:** See [`LICENSE`](./LICENSE) (**CC BY-NC 4.0**). Commercial use **outside** the NC terms requires a **separate written agreement**.
 
 ## Roadmap
 
 - Additional actions (e.g. running, turning) as separate sample folders.
+- Optional: Hugging Face mirror for the **Dexterous Hand movements** bulk tree (same pattern as walking upload scripts).
 - Optional Hugging Face mirrors for the **bulk** export (see `scripts/upload_bulk_to_huggingface.ps1`).
 
 ## Citation

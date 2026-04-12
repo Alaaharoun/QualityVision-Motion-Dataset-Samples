@@ -1,0 +1,224 @@
+{
+  "schema_version": "1.3.1",
+  "job_id": "bulk_10_videos_69f3288a",
+  "batch": true,
+  "high_density_mode": false,
+  "video_count": 10,
+  "totals": {
+    "exported_frames": 9228,
+    "quality_score_mean": 0.9645,
+    "mean_avg_landmark_visibility": 0.928979,
+    "fps_mean": 26.994005994005995,
+    "stride": 1,
+    "action_distribution": {
+      "Dexterous Hand movements": 9228
+    }
+  },
+  "videos": [
+    {
+      "original_filename": "hand_movement_pexels_856437.mp4",
+      "exported_frames": 1472,
+      "fps": 25.0,
+      "stride": 1,
+      "quality_score": 0.959,
+      "estimated_source_duration_sec": 16.08,
+      "avg_sequence_length": 1472,
+      "action_label": "Dexterous Hand movements"
+    },
+    {
+      "original_filename": "hand_movement_pexels_4968942.mp4",
+      "exported_frames": 240,
+      "fps": 29.97002997002997,
+      "stride": 1,
+      "quality_score": 0.9776,
+      "estimated_source_duration_sec": 15.55,
+      "avg_sequence_length": 240,
+      "action_label": "Dexterous Hand movements"
+    },
+    {
+      "original_filename": "hand_movement_pexels_5020484.mp4",
+      "exported_frames": 2312,
+      "fps": 29.97002997002997,
+      "stride": 1,
+      "quality_score": 0.9929,
+      "estimated_source_duration_sec": 49.25,
+      "avg_sequence_length": 2312,
+      "action_label": "Dexterous Hand movements"
+    },
+    {
+      "original_filename": "hand_movement_pexels_5095288.mp4",
+      "exported_frames": 0,
+      "fps": 25.0,
+      "stride": 1,
+      "quality_score": 0.0,
+      "estimated_source_duration_sec": 6.08,
+      "avg_sequence_length": 0,
+      "action_label": "Dexterous Hand movements"
+    },
+    {
+      "original_filename": "hand_movement_pexels_6259144.mp4",
+      "exported_frames": 1240,
+      "fps": 25.0,
+      "stride": 1,
+      "quality_score": 0.9629,
+      "estimated_source_duration_sec": 13.76,
+      "avg_sequence_length": 1240,
+      "action_label": "Dexterous Hand movements"
+    },
+    {
+      "original_filename": "hand_movement_pexels_6268981.mp4",
+      "exported_frames": 1952,
+      "fps": 25.0,
+      "stride": 1,
+      "quality_score": 0.9402,
+      "estimated_source_duration_sec": 40.36,
+      "avg_sequence_length": 1952,
+      "action_label": "Dexterous Hand movements"
+    },
+    {
+      "original_filename": "hand_movement_pexels_6730701.mp4",
+      "exported_frames": 888,
+      "fps": 25.0,
+      "stride": 1,
+      "quality_score": 0.9871,
+      "estimated_source_duration_sec": 16.72,
+      "avg_sequence_length": 888,
+      "action_label": "Dexterous Hand movements"
+    },
+    {
+      "original_filename": "hand_movement_pexels_10320573.mp4",
+      "exported_frames": 156,
+      "fps": 25.0,
+      "stride": 1,
+      "quality_score": 0.8905,
+      "estimated_source_duration_sec": 20.64,
+      "avg_sequence_length": 156,
+      "action_label": "Dexterous Hand movements"
+    },
+    {
+      "original_filename": "hand_movement_pexels_10431980.mp4",
+      "exported_frames": 200,
+      "fps": 30.0,
+      "stride": 1,
+      "quality_score": 0.9947,
+      "estimated_source_duration_sec": 8.07,
+      "avg_sequence_length": 200,
+      "action_label": "Dexterous Hand movements"
+    },
+    {
+      "original_filename": "hand_movement_pexels_10431991.mp4",
+      "exported_frames": 768,
+      "fps": 30.0,
+      "stride": 1,
+      "quality_score": 0.9308,
+      "estimated_source_duration_sec": 12.77,
+      "avg_sequence_length": 768,
+      "action_label": "Dexterous Hand movements"
+    }
+  ],
+  "artifacts": {
+    "per_frame_records": "dataset/data.jsonl",
+    "per_video_frames_glob": "dataset/per_video/video_*.jsonl",
+    "per_video_rejected_glob": "dataset/per_video/rejected_*.jsonl",
+    "combined_layout": "dataset/bulk_combined_manifest.json",
+    "sequence_features": "dataset/features.json",
+    "job_manifest": "dataset/manifest.json",
+    "run_diagnostics": "dataset/run_diagnostics.json",
+    "runtime_config": "dataset/runtime_config.json"
+  },
+  "quality_filter": {
+    "enabled": true,
+    "thresholds": {
+      "min_frame_quality_score": 0.35,
+      "min_avg_landmark_visibility": 0.5,
+      "min_lower_body_visibility": null,
+      "min_motion_local": 0.6
+    },
+    "frames_total": 4107,
+    "frames_accepted_pre_augmentation": 2307,
+    "frames_exported_including_augmentations": 9228,
+    "frames_rejected": 1800,
+    "accepted_percentage": 56.17,
+    "acceptance_rate_note": "accepted_percentage = frames_accepted_pre_augmentation / frames_total (sampled). frames_exported_including_augmentations includes augmentation duplicates.",
+    "quality_score_formula": "Per frame: frame_quality_score = 0.5 * avg_landmark_visibility + 0.0 * lower_body_visibility + 0.5 * motion_local.",
+    "mean_metrics_accepted_frames": {
+      "mean_frame_quality_score": 0.9645,
+      "mean_avg_landmark_visibility": 0.929,
+      "mean_lower_body_visibility": 0.0,
+      "mean_motion_local": 1.0
+    },
+    "quality_score_mean_filtered": 0.9645,
+    "mean_avg_landmark_visibility_filtered": 0.929,
+    "sequence_quality_score_formula": "Sequence quality_score uses motion_consistency from hip displacement series.",
+    "per_frame_quality_formula": "Per frame: frame_quality_score = 0.5 * avg_landmark_visibility + 0.0 * lower_body_visibility + 0.5 * motion_local."
+  },
+  "keypoint_post_processing": {
+    "gaussian_smoothing": {
+      "enabled": true,
+      "window": 5,
+      "axes": [
+        "x",
+        "y",
+        "z"
+      ],
+      "visibility_smoothed": false,
+      "config": "hq.gaussian_smooth / hq.temporal_smoothing, gaussian_window, or MDE_GAUSSIAN_SMOOTH"
+    },
+    "body_normalization": {
+      "method": "hip_center_torso_scale"
+    }
+  },
+  "runtime_config": "dataset/runtime_config.json",
+  "motion_intelligence": {
+    "enabled": true,
+    "domain": "hand_dexterous",
+    "frames_with_intel": 2307,
+    "mean_speed_combined": 0.583211,
+    "mean_finger_tip_speed_mean": 0.583211,
+    "mean_wrist_speed_norm_per_sec": 0.417268,
+    "hand_activity_histogram": {
+      "finger_active": 2254,
+      "hand_translating": 1,
+      "manipulation": 35,
+      "static": 17
+    },
+    "grip_type_histogram": {
+      "neutral": 6,
+      "open": 1676,
+      "pinch": 249,
+      "power": 2,
+      "precision": 374
+    }
+  },
+  "buyer_marketing": {
+    "tagline": "Train your AI on real hand motion data \u2014 ready in minutes.",
+    "commercial_use": "Unlike many academic datasets, Quality Vision B2B exports are intended for commercial use under your agreed license terms \u2014 see LICENSE_EXPORT.txt in the ZIP and manifest.license / dataset_license (not limited to research-only).",
+    "feature_highlights": [
+      "21-point hand keypoints (MediaPipe-style)",
+      "Temporal sequences with timestamps",
+      "Per-frame action field + metadata/actions.csv (optional per-frame taxonomy via job payload)",
+      "Hand\u2013object interaction metadata when hq.object_interaction is configured",
+      "Optional camera_pov: first_person | third_person (manual)",
+      "JSONL + optional COCO-like keypoints export",
+      "PyTorch loader guide: examples/README_PYTORCH.md"
+    ],
+    "use_cases": [
+      {
+        "label": "Robotics",
+        "emoji": "\ud83e\udd16"
+      },
+      {
+        "label": "AR/VR",
+        "emoji": "\ud83e\udd7d"
+      },
+      {
+        "label": "Gesture recognition",
+        "emoji": "\u270b"
+      },
+      {
+        "label": "Human behavior AI",
+        "emoji": "\ud83e\udde0"
+      }
+    ]
+  }
+}
